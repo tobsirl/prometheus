@@ -21,3 +21,22 @@ prometheus_http_requests_total[1m]
 **Scalar -** A simple numeric floating point value. eg. 15.21
 
 **String -** A simple string value, currently unused. eg. hello
+
+### Selectors & Matchers
+
+#### Matcher Types
+
+**Equality matcher (=)** Select labels are exactly equal to the provided string.
+
+```bash
+process_cpu_seconds_total{job='node_exporter'}
+
+# Multiple arguments
+process_cpu_seconds_total{job='node_exporter', instance='localhost:9090'}
+```
+
+**Negative Equality matcher (!=)** Select labels that are not equal to the provided string.
+
+```bash
+process_cpu_seconds_total{job!='prometheus'}
+```
