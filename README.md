@@ -52,3 +52,34 @@ prometheus_http_requests_total{handler=~'/api.*'}
 ```bash
 prometheus_http_requests_total{handler!~'/api.*'}
 ```
+
+### Operators
+
+#### Binary Operators
+
+Binary operators are operators that take two operands and performs the specified calculation on them.
+
+- Arithmetic binary operator - the symbols that represent arithmetic math operations.
+  - (+ addition)
+  - (- subtraction)
+  - (* multiplication)
+  - (/ division)
+  - (% modulo)
+  - (^ power/exponention)
+  - Binary arithmetic operators are defined between scalar/scalar, vector/scaler, and vector/vector value pairs. eg. node_memory_Active_bytes / 8
+  
+- Comparsion binary operator - is a mathematical symbol with is used for comparsion.
+  - == equal
+  - != not equal
+  - ">" greater than
+  - < less than
+  - ">=" greater than or equal to
+  - <= less than or equal to 
+  - Comparsion operators are defined between scalar/scalar, vector/scaler, and vector/vector value pairs. eg. node_memory_Active_bytes > 1000000000
+- Logical / Set binary operator - is a mathematical symbol with is used for logical operations.
+  - AND
+  - OR
+  - Unless otherwise specified, binary operators are defined between two vectors of equal length. Vector matching behavior is described below.
+  - Logical operators are defined between vector/vector value pairs. eg. node_memory_Active_bytes > 1000000000 AND node_memory_Active_bytes < 2000000000
+
+#### Aggregation Operators
