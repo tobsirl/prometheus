@@ -123,4 +123,6 @@ Function operators are special mathematical functions that are used to combine i
 rate(prometheus_http_requests_total{handler=~"/api.*"}[1m])
 
 irate(prometheus_http_requests_total{handler=~"/api.*"}[1m])
+
+sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
 ```
