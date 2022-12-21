@@ -91,3 +91,15 @@ prometheus_http_requests_total and on(code) promhttp_metric_handler_requests_tot
 ```
 
 #### Aggregation Operators
+Aggregation operators are special mathematical functions that are used to combine information.
+- **sum()** - calculate sum over dimensions
+- **min()** - calculate minimum over dimensions
+- **max()** - calculate maximum over dimensions
+- **avg()** - calculate the average over dimensions
+- **stddev()** - calculate population standard deviation over dimensions
+- **stdvar()** - calculate population standard variance over dimensions
+- **count()** - count number of elements in the vector
+- **count_values()** - count number of elements with the same value
+- **bottomk()** - smallest k elements by sample value
+- **topk()** - largest k elements by sample value
+- **quantile()** - calculate φ-quantile (0 ≤ φ ≤ 1) over dimensions
