@@ -74,12 +74,20 @@ Binary operators are operators that take two operands and performs the specified
   - ">" greater than
   - < less than
   - ">=" greater than or equal to
-  - <= less than or equal to 
+  - <= less than or equal to
   - Comparsion operators are defined between scalar/scalar, vector/scaler, and vector/vector value pairs. eg. node_memory_Active_bytes > 1000000000
 - Logical / Set binary operator - is a mathematical symbol with is used for logical operations.
   - AND
   - OR
   - Unless otherwise specified, binary operators are defined between two vectors of equal length. Vector matching behavior is described below.
   - Logical operators are defined between vector/vector value pairs. eg. node_memory_Active_bytes > 1000000000 AND node_memory_Active_bytes < 2000000000
+
+##### ignoring and on
+
+```bash
+prometheus_http_requests_total and ignoring(handler) promhttp_metric_handler_requests_total
+
+prometheus_http_requests_total and on(code) promhttp_metric_handler_requests_total
+```
 
 #### Aggregation Operators
