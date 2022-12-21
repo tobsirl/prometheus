@@ -46,3 +46,9 @@ process_cpu_seconds_total{job!='prometheus'}
 ```bash
 prometheus_http_requests_total{handler=~'/api.*'}
 ```
+
+**Negative Regular expression matcher (=~)** Select labels that do not regex-match with the provided string.
+
+```bash
+prometheus_http_requests_total{handler!~'/api.*'}
+```
