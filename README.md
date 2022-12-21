@@ -40,3 +40,9 @@ process_cpu_seconds_total{job='node_exporter', instance='localhost:9090'}
 ```bash
 process_cpu_seconds_total{job!='prometheus'}
 ```
+
+**Regular expression matcher (=~)** Select labels that regex-match with the provided string.
+
+```bash
+prometheus_http_requests_total{handler=~'/api.*'}
+```
