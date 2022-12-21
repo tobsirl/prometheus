@@ -91,7 +91,9 @@ prometheus_http_requests_total and on(code) promhttp_metric_handler_requests_tot
 ```
 
 #### Aggregation Operators
+
 Aggregation operators are special mathematical functions that are used to combine information.
+
 - **sum()** - calculate sum over dimensions
 - **min()** - calculate minimum over dimensions
 - **max()** - calculate maximum over dimensions
@@ -108,4 +110,17 @@ Aggregation operators are special mathematical functions that are used to combin
 sum(prometheus_http_requests_total) by (code)
 topk(3, sum(node_cpu_seconds_total) by (mode))
 bottomk(3, sum(node_cpu_seconds_total) by (mode))
+```
+
+#### Function Operators
+
+Function operators are special mathematical functions that are used to combine information.
+
+- **rate()** - calculate per-second average rate of increase of the time series in the range vector.
+- **irate()** - calculate per-second instant rate of increase of the time series in the range vector.
+
+```bash
+rate(prometheus_http_requests_total{handler=~"/api.*"}[1m])
+
+irate(prometheus_http_requests_total{handler=~"/api.*"}[1m])
 ```
