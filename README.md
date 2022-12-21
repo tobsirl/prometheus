@@ -103,3 +103,9 @@ Aggregation operators are special mathematical functions that are used to combin
 - **bottomk()** - smallest k elements by sample value
 - **topk()** - largest k elements by sample value
 - **quantile()** - calculate φ-quantile (0 ≤ φ ≤ 1) over dimensions
+
+```bash
+sum(prometheus_http_requests_total) by (code)
+topk(3, sum(node_cpu_seconds_total) by (mode))
+bottomk(3, sum(node_cpu_seconds_total) by (mode))
+```
