@@ -143,6 +143,10 @@ sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
   - For example, Use counters to represent the number of requests served, tasks completed, errors occurred, or messages received.
   - Counters have one main method: inc() that increments the counter by 1.
   - Do not user the counters to expose a value that can decrease. For example, Temperature, the number of currently running goroutines, or the number of items in a queue.
-- Gauge - A gauge is a metric that represents a single numerical value that can arbitrarily go up and down.
+- Gauge 
+  - A gauge is a metric that represents a single numerical value that can arbitrarily go up and down.
+  - Guage represent a snapshot of some current state.
+  - For example, Used for measured values like temperature, current memory usage, or anything whose value can go up and down.
+  - Guages have three main methods: inc(), dec(), and set() that increases, decreases value by one and set the guage to an arbitary value respectively.
 - Summary - A summary samples observations (usually things like request durations or response sizes) and provides a summary of those observations in the form of quantiles.
 - Histogram - A histogram samples observations (usually things like request durations or response sizes) and counts them in configurable buckets. It also provides a sum of all observed values.
