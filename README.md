@@ -141,6 +141,8 @@ sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
   - A counter is a cumulative metric that represents a single monotonically increasing counter whose value can only increase or be reset to zero on restart.
   - Counters are mainly used to track how often a particular code path is executed.
   - For example, Use counters to represent the number of requests served, tasks completed, errors occurred, or messages received.
+  - Counters have one main method: inc() that increments the counter by 1.
+  - Do not user the counters to expose a value that can decrease. For example, Temperature, the number of currently running goroutines, or the number of items in a queue.
 - Gauge - A gauge is a metric that represents a single numerical value that can arbitrarily go up and down.
 - Summary - A summary samples observations (usually things like request durations or response sizes) and provides a summary of those observations in the form of quantiles.
 - Histogram - A histogram samples observations (usually things like request durations or response sizes) and counts them in configurable buckets. It also provides a sum of all observed values.
