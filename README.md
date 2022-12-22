@@ -155,4 +155,11 @@ sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
   - Summary exposes multiple time series during a scrape:
     - The **total sum(<basename>_sum)** of all observed values.
     - The **count(<basename>_count)** of events that have been observed.
-- Histogram - A histogram samples observations (usually things like request durations or response sizes) and counts them in configurable buckets. It also provides a sum of all observed values.
+  - Summary metrics may also include quantiles over a sliding time window.
+- Histogram 
+  - A histogram samples observations (usually things like request durations or response sizes) and counts them in configurable buckets. It also provides a sum of all observed values.
+  - The instrumentation for histograms is the same as for Summary.
+  - Histogram exposes multiple time series during a scrape:
+    - The **total sum(<basename>_sum)** of all observed values.
+    - The **count(<basename>_count)** of events that have been observed.
+  - The main puporse of using Histogram is calculating quantiles.
