@@ -126,3 +126,11 @@ irate(prometheus_http_requests_total{handler=~"/api.*"}[1m])
 
 sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
 ```
+
+## Client Libraries
+
+- Using client libraries, with usually adding two or three lines of code, you add your desired instrumentations to your code and define custom metrics to be exposed.
+- There are a number of client libraries available for all major languages and runtimes.
+- Prometheus project officially maintains client libraries for Go, Java, Python, Ruby, and Scala.
+- Unofficially, there are also client libraries for C, C++, C#, Erlang, Haskell, Lua, Node.js, Rust, and Swift.
+- Client libraries take care of all the bookkeeping and producing the Prometheus format metrics.
