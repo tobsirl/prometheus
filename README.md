@@ -148,5 +148,11 @@ sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
   - Guage represent a snapshot of some current state.
   - For example, Used for measured values like temperature, current memory usage, or anything whose value can go up and down.
   - Guages have three main methods: inc(), dec(), and set() that increases, decreases value by one and set the guage to an arbitary value respectively.
-- Summary - A summary samples observations (usually things like request durations or response sizes) and provides a summary of those observations in the form of quantiles.
+- Summary
+  - A summary samples observations (usually things like request durations or response sizes) and provides a summary of those observations in the form of quantiles.
+  - Summary track the size and number of events.
+  - Summary has one primary method: observe() to which we pass the size of the event.
+  - Summary exposes multiple time series during a scrape:
+    - The **total sum(<basename>_sum)** of all observed values.
+    - The **count(<basename>_count)** of events that have been observed.
 - Histogram - A histogram samples observations (usually things like request durations or response sizes) and counts them in configurable buckets. It also provides a sum of all observed values.
