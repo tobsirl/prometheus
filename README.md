@@ -143,7 +143,7 @@ sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
   - For example, Use counters to represent the number of requests served, tasks completed, errors occurred, or messages received.
   - Counters have one main method: inc() that increments the counter by 1.
   - Do not user the counters to expose a value that can decrease. For example, Temperature, the number of currently running goroutines, or the number of items in a queue.
-- Gauge 
+- Gauge
   - A gauge is a metric that represents a single numerical value that can arbitrarily go up and down.
   - Guage represent a snapshot of some current state.
   - For example, Used for measured values like temperature, current memory usage, or anything whose value can go up and down.
@@ -156,10 +156,17 @@ sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
     - The **total sum(<basename>_sum)** of all observed values.
     - The **count(<basename>_count)** of events that have been observed.
   - Summary metrics may also include quantiles over a sliding time window.
-- Histogram 
+- Histogram
   - A histogram samples observations (usually things like request durations or response sizes) and counts them in configurable buckets. It also provides a sum of all observed values.
   - The instrumentation for histograms is the same as for Summary.
   - Histogram exposes multiple time series during a scrape:
     - The **total sum(<basename>_sum)** of all observed values.
     - The **count(<basename>_count)** of events that have been observed.
   - The main puporse of using Histogram is calculating quantiles.
+
+### Metric Naming Conventions
+
+- Metric names should start with a letter, and can be followed with any number of letters, numbers, and underscores.
+- Metrics must have unique names, and client libraries would report an error if you try to register the same metric twice for your application.
+- If applicable, when exposing the time series for Counter type metric, a _total suffix is added automatically to the exposed metric name.
+- Should represent the same logical thing-being measured accross all label diminsions.
