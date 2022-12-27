@@ -209,3 +209,11 @@ sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
   - How long the job took to run
   - Overall time
   - Time at which job last completed (success or failure)
+
+### Library Instrumentation
+
+- Libraries should expose metrics that are useful to the application that uses them.
+- Depending on how heavy the library is, track:
+  - Internal Errors
+  - Latency time within the library itself
+- If a libary is used to access some resources outside of the process then at least track the overall query count and latency.
