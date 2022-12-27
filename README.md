@@ -177,7 +177,7 @@ sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
 
 ### Service Instrumentation
 
-Online-Serving Systems
+#### Online-Serving Systems
 
 - A system where a human or anoter system is expecting an immediate response. Includes - databases, web servers, and HTTP requests.
 - Key metrics include:
@@ -185,3 +185,18 @@ Online-Serving Systems
   - Latency
   - Error rate
   - In-progress requests
+
+- Online-Serving system should be monitored on both the client and server side.
+
+#### Offline-Processing Systems
+
+- For Offline-Processing Systems there is no one actively waiting for a response.
+- Batching is common. Multiple stages of processing.
+- Example - A log processing system.
+- The key metrics include:
+  - Track the items coming in
+  - How many are in progress
+  - Last time you processed something
+  - How many items were sents out
+  - Errors that occurred
+- If batching, then track the metrics both for batches and individual items.
