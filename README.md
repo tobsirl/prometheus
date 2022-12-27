@@ -170,3 +170,18 @@ sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
 - Metrics must have unique names, and client libraries would report an error if you try to register the same metric twice for your application.
 - If applicable, when exposing the time series for Counter type metric, a _total suffix is added automatically to the exposed metric name.
 - Should represent the same logical thing-being measured accross all label diminsions.
+
+## Quantification of Instrumentation
+
+"Instrument Everything" - Every library, subsystem and service you are working on should have at least a few metrics that should give you a rough idea of how it is performing.
+
+### Service Instrumentation
+
+Online-Serving Systems
+
+- A system where a human or anoter system is expecting an immediate response. Includes - databases, web servers, and HTTP requests.
+- Key metrics include:
+  - Request rate
+  - Latency
+  - Error rate
+  - In-progress requests
