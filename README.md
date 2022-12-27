@@ -200,3 +200,12 @@ sort_desc(topk(10,max_over_time(node_cpu_seconds_total{mode!="idle"}[1h])))
   - How many items were sents out
   - Errors that occurred
 - If batching, then track the metrics both for batches and individual items.
+
+#### Batch Jobs
+
+- Batch jobs are very similar to offline-processing systems. Batch jobs do not run continuously, they run on a regular schedule.
+- Push gateway used to scrape batch jobs.
+- The key metrics include:
+  - How long the job took to run
+  - Overall time
+  - Time at which job last completed (success or failure)
